@@ -14,4 +14,5 @@ if [ -z "$(ls lib/ 2> /dev/null)" ]; then
   rm applemusic.apk
 fi
 
+echo "DEBUG: Entrypoint running as user $(id -u), attempting to bind to port ${PORT:-10000}"
 exec ./omnisette-server --http-port "${PORT:-10000}" --https-port 8443 -l Info
