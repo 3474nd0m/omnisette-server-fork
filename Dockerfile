@@ -1,4 +1,4 @@
-FROM rust:slim-buster AS builder
+FROM rust:slim-bookworm AS builder
 
 RUN apt-get update && apt-get install --no-install-recommends -y perl make && \
     apt-get clean && \
