@@ -13,5 +13,3 @@ if [ -z "$(ls lib/ 2> /dev/null)" ]; then
   fi
   rm applemusic.apk
 fi
-
-./omnisette-server
