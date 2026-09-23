@@ -1,5 +1,5 @@
 FROM rust:slim-bookworm AS builder
-WORKDIR /opt/omnisette-server/
+WORKDIR /app
 RUN apt-get update && apt-get install --no-install-recommends -y perl make unzip curl && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
@@ -16,7 +16,7 @@ FROM debian:stable-slim AS runtime
 RUN apt-get update && apt-get install --no-install-recommends -y unzip curl ca-certificates bash && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-WORKDIR /opt/omnisette-server/
+WORKDIR /app
 COPY docker-entrypoint.sh ./
 COPY --from=builder /opt/omnisette-server/target/release/omnisette-server ./
 COPY --from=builder /opt/omnisette-server/lib ./lib
