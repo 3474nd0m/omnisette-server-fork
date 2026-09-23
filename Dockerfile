@@ -27,4 +27,7 @@ COPY docker-entrypoint.sh ./
 
 COPY --from=builder /opt/omnisette-server/target/release/omnisette-server ./
 
+RUN chmod +x docker-entrypoint.sh
+RUN chmod +x omnisette-server
+
 ENTRYPOINT [ "./docker-entrypoint.sh" ]
