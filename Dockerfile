@@ -18,8 +18,8 @@ RUN apt-get update && apt-get install --no-install-recommends -y unzip curl ca-c
     rm -rf /var/lib/apt/lists/*
 WORKDIR /app
 COPY docker-entrypoint.sh ./
-COPY --from=builder /opt/omnisette-server/target/release/omnisette-server ./
-COPY --from=builder /opt/omnisette-server/lib ./lib
+COPY --from=builder /app/target/release/omnisette-server ./
+COPY --from=builder /app/lib ./lib
 RUN chmod +x docker-entrypoint.sh
 RUN chmod +x omnisette-server
 ENTRYPOINT [ "./docker-entrypoint.sh" ]
