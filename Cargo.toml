@@ -8,6 +8,7 @@ edition = "2021"
 
 [dependencies]
 omnisette = { git = "https://github.com/SideStore/apple-private-apis.git", features = ["async"] }
+time = ">=0.3.35"
 
 actix = "0.13"
 actix-web = { version = "4", features = ["openssl"] }
