@@ -13,3 +13,5 @@ if [ -z "$(ls lib/ 2> /dev/null)" ]; then
   fi
   rm applemusic.apk
 fi
+
+exec ./omnisette-server --http-port "${PORT:-80}" -l Info
